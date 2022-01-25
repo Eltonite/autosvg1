@@ -20,7 +20,7 @@ function DrawTileMap() {
     })
     // tileArray.push(someArray)
     tileArray.push(
-      <div className='flex flex-row'>
+      <div className='flex flex-row justify-center'>
         {someArray}
       </div>
     )

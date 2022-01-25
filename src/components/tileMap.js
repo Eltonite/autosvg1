@@ -2,7 +2,10 @@ export default function tileMap() {
   const numArray = [];
   const finalArray = [];
   for (let i = 0; i < 10; i++){
-    numArray.push(Math.floor(Math.random() * 11) + 1)
+    let randNum = Math.floor(Math.random() * 11) + 1
+    if ((randNum % 2) === 0){
+      numArray.push(randNum + 1)
+    } else numArray.push(randNum);
   }
   console.log(numArray)
 
