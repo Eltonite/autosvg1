@@ -2,34 +2,62 @@ import logo from './logo.svg';
 import './App.css';
 import LoginBtn from './LoginBtn';
 import LogoutBtn from './LogoutBtn';
+import Tile from './components/Tile';
+import NoTile from './components/NoTile';
+import DrawTileMap from './components/DrawTileMap';
+import tileMap from './components/tileMap';
 
 function App() {
+
+  const letterMatrix = [0,1,1,1,0]
+  const lettermatrixMap = [
+    [0,0,0,0,0,0,0,0,0],
+    [0,1,1,1,1,1,1,1,0],
+    [0,1,1,1,1,1,1,1,0],
+    [0,1,1,1,1,1,1,1,0],
+    [0,1,1,1,1,1,1,1,0],
+    [0,1,1,1,1,1,1,1,0],
+    [0,0,0,0,0,0,0,0,0]
+  ]
+  const testingArray = tileMap();
+  console.log(testingArray)
+  let tileArray = [];
+
+  // letterMatrix.map((item) => {
+  //   if (item === 1){
+  //     tileArray.push(<Tile />)
+  //   }
+  //   else if (item === 0){
+  //     tileArray.push(<NoTile />)
+  //   }
+  // })
+
+  let MapTile = (drawArray) => {
+    const someArray = [];
+
+    drawArray.map((item) => {
+      if (item === 1){
+        someArray.push(<Tile />)
+      }
+      else if (item === 0){
+        someArray.push(<NoTile />)
+      }
+    })
+    // tileArray.push(someArray)
+    tileArray.push(
+      <div className='flex flex-row'>
+        {someArray}
+      </div>
+    )
+  }
+
+  lettermatrixMap.map((item) => {
+    MapTile(item)
+  })
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className='font-bold'>DIVE INTO WEB 3</h1>
-        <div className='flex flex-row gap-5'>
-          <a className='hover:bg-slate-900 hover:rounded-lg px-2' 
-          href="https://reactjs.org"
-          target="_blank">React</a>
-          <p>/</p>
-          <a className='hover:bg-slate-900 hover:rounded-lg px-2' 
-          href="https://tailwindcss.com"
-          target="_blank">TailwindCSS</a>
-          <p>/</p>
-          <a className='hover:bg-slate-900 hover:rounded-lg px-2' 
-          href="https://moralis.io"
-          target="_blank">Moralis</a>
-        </div>
-
-        <div className='flex flex-row text-center gap-10 mt-8'>
-          <LoginBtn />
-          <LogoutBtn />
-        </div>
-
-      </header>
-    </div>
+    <DrawTileMap />
   );
 }
 
