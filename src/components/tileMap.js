@@ -63,16 +63,28 @@ export default function tileMap(numRows, numCols) {
 
 
   // Smoothing out edge-walls OPTION 2
+  // finalArray.forEach((item)=>{
+  //   let diff = (numCols + 2) - (item.length);
+  //   if (diff > 0){
+  //     for (let j = 0; j < diff/2; j++){
+  //       item.push(0);
+  //       item.unshift(0);
+  //     }
+  //   }
+  // })
+
+  // Randomizing edge-walls OPTION 3
   finalArray.forEach((item)=>{
     let diff = (numCols + 2) - (item.length);
     if (diff > 0){
       for (let j = 0; j < diff/2; j++){
-        item.push(0);
-        item.unshift(0);
+        item.push(Math.floor(Math.random()*2));
+        item.unshift(Math.floor(Math.random()*2));
       }
     }
   })
 
+  console.log(finalArray)
 
 
   return finalArray;
