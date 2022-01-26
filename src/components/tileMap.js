@@ -1,8 +1,8 @@
-export default function tileMap() {
+export default function tileMap(numRows, numCols) {
   const numArray = [];
   const finalArray = [];
-  for (let i = 0; i < 10; i++){
-    let randNum = Math.floor(Math.random() * 11) + 1
+  for (let i = 0; i < numRows; i++){
+    let randNum = Math.floor(Math.random() * numCols) + 1
     if ((randNum % 2) === 0){
       numArray.push(randNum + 1)
     } else numArray.push(randNum);
@@ -27,7 +27,7 @@ export default function tileMap() {
     finalArray.push(level)
     level = []
 
-    if (index === 9){
+    if (index === numArray.length - 1){
       for(let i = 0; i < (item + 2); i++){
         level.push(0);
       }
@@ -36,6 +36,44 @@ export default function tileMap() {
     }
   })
   console.log(finalArray)
+
+  // Smoothing out edge-walls OPTION 1
+  // for(let i = 0; i < finalArray.length - 2; i++){
+
+  //   let diff = finalArray[i].length - finalArray[i+1].length;
+  //   console.log(diff);
+
+  //   if (diff < 0){
+  //     for (let j = 0; j < Math.abs(diff/2); j++){
+  //       finalArray[i].push(0);
+  //       finalArray[i].unshift(0);
+  //     }
+  //   }
+  //   else if (diff > 0){
+  //     for (let j = 0; j < Math.abs(diff/2); j++){
+  //       finalArray[i+1].push(0);
+  //       finalArray[i+1].unshift(0);
+  //     }
+  //   }
+  // }
+
+  // finalArray.forEach((item)=>{
+  //   console.log(item);
+  // })
+
+
+  // Smoothing out edge-walls OPTION 2
+  finalArray.forEach((item)=>{
+    let diff = (numCols + 2) - (item.length);
+    if (diff > 0){
+      for (let j = 0; j < diff/2; j++){
+        item.push(0);
+        item.unshift(0);
+      }
+    }
+  })
+
+
 
   return finalArray;
 }
