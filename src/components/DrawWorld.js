@@ -5,19 +5,19 @@ import tileMap from './tileMap';
 
 function DrawWorld() {
 
-  let array = tileMap(10,10);
+  let array = tileMap(20,10);
   const layer1 = DrawTileMap(array);
-  const layer2 = DrawCoinMap(array);
 
+  let coinGuideArray = array.slice();
+  const layer2 = DrawCoinMap(coinGuideArray);
 
+  console.log(layer2)
 
   return(
-    <div>
-      <div className='lower-layer absolute'>{layer1}</div>
-      <div className='mid-layer absolute'>{layer2}</div>
-      
-      
-    </div>
+      <div className='relative'>
+        <div className='absolute z-1'>
+          {layer1}</div>
+      </div>
   );
 }
 

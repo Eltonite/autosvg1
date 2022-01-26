@@ -81,6 +81,7 @@
 .lower-layer {
   z-index: 1;
   top: 0px;
+  
 }
 .mid-layer {
   z-index: 2;

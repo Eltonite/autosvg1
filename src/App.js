@@ -4,7 +4,7 @@ import DrawWorld from './components/DrawWorld';
 function App() {
 
   return (
-    <div className='h-screen bg-black relative'>
+    <div className='h-screen bg-black flex flex-col'>
       <DrawWorld />
     </div>
   );
