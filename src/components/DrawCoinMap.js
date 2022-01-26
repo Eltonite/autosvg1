@@ -1,17 +1,46 @@
 import React from 'react';
 import Coin from './Coin';
+import EmptyTile from './EmptyTile';
+import NoTile from './NoTile';
 
-export default function DrawCoinMap() {
+export default function DrawCoinMap(array) {
 
-  const arraySimple = [0,0,0,0,0,0,0]
+  const arrayStart = array;
+  console.log(arrayStart);
+  const coinArray = [];
+
+  arrayStart.map((arr) => {
+    let rowCoinArray = [];
+    arr.map((item)=> {
+      if (item === 0){
+        rowCoinArray.push(0);
+      } 
+      else if (item === 1){
+
+        const CoinYes = Math.floor(Math.random()*9)
+        if (CoinYes == 1){
+          rowCoinArray.push(1)
+        }
+        else{
+          rowCoinArray.push(0);
+        }
+      } 
+    })
+    coinArray.push(rowCoinArray)
+  })
+  console.log(coinArray);
+
   const tileArray =[];
 
   let MapTile = (drawArray) => {
     const someArray = [];
 
     drawArray.map((item) => {
-      if (item === 0){
+      if (item === 1){
         someArray.push(<Coin />)
+      }
+      else if (item === 0){
+        someArray.push(<EmptyTile />)
       }
     })
     // tileArray.push(someArray)
@@ -22,7 +51,9 @@ export default function DrawCoinMap() {
     )
   }
 
-  MapTile(arraySimple);
+  coinArray.map((item) => {
+    MapTile(item)
+  })
 
   return(
     <div className='h-full p-5 flex flex-col'>

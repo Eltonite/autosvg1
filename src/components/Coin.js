@@ -2,7 +2,7 @@ import React from 'react';
 
 function Coin() {
 
-  const color1 = "#0099cc"
+  const color1 = "gold"
 
   const x = 25;
   return (
