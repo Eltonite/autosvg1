@@ -7,7 +7,6 @@ export default function tileMap(numRows, numCols) {
       numArray.push(randNum + 1)
     } else numArray.push(randNum);
   }
-  console.log(numArray)
 
   numArray.forEach((item, index) => {
     let level = [];
@@ -35,7 +34,6 @@ export default function tileMap(numRows, numCols) {
       level = []
     }
   })
-  console.log(finalArray)
 
   // Smoothing out edge-walls OPTION 1
   // for(let i = 0; i < finalArray.length - 2; i++){
@@ -83,9 +81,6 @@ export default function tileMap(numRows, numCols) {
       }
     }
   })
-
-  console.log(finalArray)
-
 
   return finalArray;
 }

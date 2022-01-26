@@ -1,11 +1,11 @@
 import './App.css';
-import DrawTileMap from './components/DrawTileMap';
+import DrawWorld from './components/DrawWorld';
 
 function App() {
 
   return (
-    <div className='h-screen bg-black'>
-      <DrawTileMap />
+    <div className='h-screen bg-black relative'>
+      <DrawWorld />
     </div>
   );
 }

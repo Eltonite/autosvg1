@@ -3,8 +3,8 @@ import NoTile from './NoTile';
 import Tile from './Tile';
 import tileMap from './tileMap';
 
-function DrawTileMap() {
-  const thearray1 = tileMap(10,10);
+export default function DrawTileMap(array) {
+  const thearray1 = array;
   let tileArray = [];
 
   let MapTile = (drawArray) => {
@@ -33,10 +33,10 @@ function DrawTileMap() {
 
 
   return (
-    <div className="h-full bg-black p-5 flex flex-col">
+    <div className='h-full p-5 flex flex-col'>
       {tileArray}
     </div>
   )
 }
 
-export default DrawTileMap;
+// export default DrawTileMap;
