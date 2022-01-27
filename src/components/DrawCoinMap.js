@@ -6,7 +6,6 @@ import NoTile from './NoTile';
 export default function DrawCoinMap(array) {
 
   const arrayStart = array;
-  console.log(arrayStart);
   const coinArray = [];
 
   arrayStart.map((arr) => {
@@ -28,7 +27,6 @@ export default function DrawCoinMap(array) {
     })
     coinArray.push(rowCoinArray)
   })
-  console.log(coinArray);
 
   const tileArray =[];
 

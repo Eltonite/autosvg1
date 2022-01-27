@@ -1,7 +1,7 @@
 function Coin() {  
 
   const color1 = "gold"
-  const x = 25;
+  const x = 40;
   return (
       <button>
         <svg className='m-1 coin-animation' width={x} height={x}>
