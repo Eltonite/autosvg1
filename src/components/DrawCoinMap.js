@@ -53,6 +53,7 @@ export default function DrawCoinMap(array) {
     MapTile(item)
   })
 
+  console.log(coinArray)
   return(
     <g className='h-full p-5 flex flex-col'>
       {tileArray}
