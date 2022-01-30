@@ -33,9 +33,9 @@ export default function DrawTileMap(array) {
 
   console.log(array)
   return (
-    <g className='h-full p-5 flex flex-col'>
+    <div className='h-full p-5 flex flex-col'>
       {tileArray}
-    </g>
+    </div>
   )
 }
 

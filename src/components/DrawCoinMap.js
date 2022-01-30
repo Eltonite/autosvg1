@@ -55,8 +55,8 @@ export default function DrawCoinMap(array) {
 
   console.log(coinArray)
   return(
-    <g className='h-full p-5 flex flex-col'>
+    <div className='h-full p-5 flex flex-col'>
       {tileArray}
-    </g>
+    </div>
   )
 }

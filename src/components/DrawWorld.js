@@ -39,14 +39,12 @@ function DrawWorld() {
   return(
     <div className='flex flex-col'>
       <div className='flex justify-center rounded-lg border-2 border-white'>
-        <g className='relative z-1'>
-          {layer1}</g>
-        <g className='absolute z-2'>
-          {layer2}
-        </g>
-        <g className='absolute z-3'>
-          {playerLayer}
-        </g> 
+        <div className='relative z-1'>
+          {layer1}</div>
+        <div className='absolute z-2'>
+          {layer2}</div>
+        <div className='absolute z-3'>
+          {playerLayer}</div> 
       </div>
 
       <div className='flex justify-center p-2 m-2'>

@@ -10,7 +10,7 @@ function DrawWorld2() {
   // x = 9 and y = 11 for halfscreen
   // x = 9 and y = 5 for 1/4 screen with console
   const baseX = 9;
-  const baseY = 5;
+  const baseY = 9;
 
   const array = tileMap(baseX,baseY);
   
@@ -20,17 +20,19 @@ function DrawWorld2() {
 
 
 
+
+
   return(
     <div className='flex flex-col'>
       <div className='flex justify-center rounded-lg border-2 border-white'>
-        <g className='relative z-1'>
-          {layer1}</g>
-        <g className='absolute z-2'>
+        <div className='relative z-1'>
+          {layer1}</div>
+        <div className='absolute z-2'>
           {layer2}
-        </g>
-        <g className='absolute z-3'>
+        </div>
+        <div className='absolute z-3'>
           {playerLayer}
-        </g> 
+        </div> 
       </div>
 
       <div className='flex justify-center p-2 m-2'>
