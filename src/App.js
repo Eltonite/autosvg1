@@ -1,16 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import DrawWorld from './components/DrawWorld';
+import DrawWorld2 from './DrawWorlds/DrawWorld2';
 
 function App() {
-
-  function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-      currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-  }
+  const whichWorld = <DrawWorld2 />
 
   const [isHidden, setIsHidden] = useState(
     {
@@ -19,7 +13,7 @@ function App() {
       text: "HIDE NFT"
     });
 
-  const [theNFT, setTheNFT] = useState(<DrawWorld />);
+  const [theNFT, setTheNFT] = useState(whichWorld);
 
   const showNFT = () => {
     if(isHidden.isTrue){
@@ -40,7 +34,7 @@ function App() {
   }
 
   const generateNFT = () => {
-    setTheNFT(<DrawWorld />);
+    setTheNFT(whichWorld);
   }
 
   return (
