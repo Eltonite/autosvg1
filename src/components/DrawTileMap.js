@@ -3,8 +3,8 @@ import NoTile from './NoTile';
 import Tile from './Tile';
 import tileMap from './tileMap';
 
-export default function DrawTileMap(array) {
-  const thearray1 = array;
+export default function DrawTileMap(props) {
+  const thearray1 = props.mapArray;
   let tileArray = [];
 
   let MapTile = (drawArray) => {
@@ -18,7 +18,6 @@ export default function DrawTileMap(array) {
         someArray.push(<NoTile />)
       }
     })
-    // tileArray.push(someArray)
     tileArray.push(
       <div className='flex flex-row justify-center'>
         {someArray}
@@ -31,7 +30,7 @@ export default function DrawTileMap(array) {
   })
 
 
-  console.log(array)
+  console.log(props.mapArray)
   return (
     <div className='h-full p-5 flex flex-col'>
       {tileArray}

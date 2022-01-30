@@ -3,9 +3,9 @@ import Coin from './Coin';
 import EmptyTile from './EmptyTile';
 import NoTile from './NoTile';
 
-export default function DrawCoinMap(array) {
+function DrawCoinMap(props) {
 
-  const arrayStart = array;
+  const arrayStart = props.mapArray;
   const coinArray = [];
 
   arrayStart.map((arr) => {
@@ -60,3 +60,5 @@ export default function DrawCoinMap(array) {
     </div>
   )
 }
+
+export default DrawCoinMap;
