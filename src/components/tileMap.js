@@ -1,6 +1,9 @@
-export default function tileMap(numRows, numCols) {
+export default function tileMap(numCols,numRows) {
   const numArray = [];
   const finalArray = [];
+  numCols = numCols - 2;
+  numRows = numRows - 2;
+
   for (let i = 0; i < numRows; i++){
     let randNum = Math.floor(Math.random() * numCols) + 1
     if ((randNum % 2) === 0){

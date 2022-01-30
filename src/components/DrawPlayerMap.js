@@ -35,9 +35,9 @@ function DrawPlayerMap(mapArray) {
   })
 
   return(
-    <div className='h-full p-5 flex flex-col'>
+    <g className='h-full p-5 flex flex-col'>
       {playerArray}
-    </div>
+    </g>
   )
 }
 
