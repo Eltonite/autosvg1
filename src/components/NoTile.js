@@ -8,7 +8,7 @@ function NoTile() {
 
   const x = 40;
   return (
-    <svg className='m-1 notile-animation' width={x} height={x}>
+    <svg className='m-1 tile-animation' width={x} height={x}>
       <rect width={x} height={x} fill='black' stroke='white' strokeWidth={2} ></rect>
     </svg>
   )

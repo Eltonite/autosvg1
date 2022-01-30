@@ -38,7 +38,7 @@
 }
 
 .tile-animation {
-  animation: tile-animation .5s ease-out .5s forwards;
+  animation: tile-animation .25s ease-out forwards;
   opacity: 0;
 	transform: scale(0.5);
 
@@ -52,7 +52,7 @@
 }
 
 .notile-animation {
-  animation: notile-animation .5s ease-out forwards;
+  animation: notile-animation .25s ease-out forwards;
   opacity: 0;
 	transform: scale(0.5);
 
@@ -66,7 +66,7 @@
 }
 
 .coin-animation {
-  animation: tile-animation .5s ease-out 1s forwards;
+  animation: tile-animation .25s ease-out .25s forwards;
   opacity: 0;
 	transform: scale(0.5);
 }
