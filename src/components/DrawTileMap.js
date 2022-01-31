@@ -37,15 +37,36 @@ export default function DrawTileMap(props) {
 
   }, [tileArray])
 
+
+
+
+
+  const [childPlayer, setChildPlayer] = useState([]);
+
+  const getPlayerArray = (childData) => {
+    setChildPlayer(childData);
+  }
+
+  console.log(childPlayer)
+
+
+
+
+
+
+
+
+
+
+
   const CoinMap = useMemo(() => {
-    return <DrawCoinMap mapArray={randomTileArray}/>
+    return <DrawCoinMap mapArray={randomTileArray} />
   }, [])
 
   const PlayerMap = useMemo(() => {
-    return <DrawPlayerMap mapArray={randomTileArray}/>
+    return <DrawPlayerMap mapArray={randomTileArray} playerArrayFunc ={getPlayerArray}  />
   }, [])
 
-  
   return (
     <div className='flex justify-center rounded-lg border-2 border-white'>
       <div className='relative z-1'>
@@ -60,6 +81,9 @@ export default function DrawTileMap(props) {
     </div>
   )
 }
+
+
+
 
 
 
@@ -88,3 +112,4 @@ const createTileComp = (posArray) => {
     </div>
   )
 }
+

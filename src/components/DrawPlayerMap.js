@@ -51,8 +51,8 @@ function DrawPlayerMap(props) {
   console.log(playerPosArray);
 
 
+  props.playerArrayFunc(playerPosArray);
   
-
   return (
 
     <div className='flex justify-center'>
