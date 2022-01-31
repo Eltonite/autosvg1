@@ -35,10 +35,14 @@ export default function DrawTileMap(props) {
   useEffect(() => {
     document.addEventListener('keydown', onKeyDown);
 
-  }, [element])
+  }, [tileArray])
 
   const CoinMap = useMemo(() => {
     return <DrawCoinMap mapArray={randomTileArray}/>
+  }, [])
+
+  const PlayerMap = useMemo(() => {
+    return <DrawPlayerMap mapArray={randomTileArray}/>
   }, [])
 
   
@@ -48,7 +52,7 @@ export default function DrawTileMap(props) {
         {element}
       </div>
       <div className='absolute z-2'>
-        <DrawPlayerMap mapArray={tileArray}/>
+        {PlayerMap}
       </div>
       <div className='absolute z-2'>
         {CoinMap}

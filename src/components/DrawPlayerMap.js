@@ -37,8 +37,8 @@ function DrawPlayerMap(props) {
       console.log(e.code)
       setPlayerPosArray(movePlayerDirs(playerPosArray, 'right'));
       document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('keydown', onKeyDown);
     }
-
   }
 
   useEffect(() => {
