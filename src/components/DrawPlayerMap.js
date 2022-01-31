@@ -8,6 +8,7 @@ import setPlayer from './setPlayer';
 function DrawPlayerMap(props) {
 
   const playerArray = setPlayer(props.mapArray);
+  console.log(props.mapArray)
 
   const [playerPosArray, setPlayerPosArray] = useState(playerArray);
 

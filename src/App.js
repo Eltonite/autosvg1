@@ -34,15 +34,11 @@ function App() {
   }
 
   const generateNFT = () => {
-    setTheNFT(whichWorld);
+    setTheNFT(<DrawWorld2 />);
   }
 
   return (
     <div className='h-screen bg-black flex flex-col gap-4 p-3 text-white'>
-
-      <button onClick={()=>{showNFT()}}>{isHidden.text}</button>
-
-      <button onClick={()=>{generateNFT()}}>{"GENERATE NFT"}</button>
 
       <div className= {isHidden.css}>
         {theNFT}

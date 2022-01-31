@@ -13,8 +13,6 @@ function JustPlayer(mainMapArray) {
 
   const playerLayer = DrawPlayerMap(newPosition);
 
-
-
   return(
     <div>
       {playerLayer}

@@ -35,7 +35,7 @@ const movePlayerDirs = (posArray, dir) => {
     const nextRowArray = [];
 
     row.map((item) => {
-      if (posX == newPosArray[0] && posY == newPosArray[1]){
+      if (posX === newPosArray[0] && posY === newPosArray[1]){
         nextRowArray.push(1);
         console.log("pushed value")
         posX += 1;
