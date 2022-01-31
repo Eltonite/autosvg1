@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { useState } from 'react/cjs/react.development';
 import DrawCoinMap from './DrawCoinMap';
-import DrawPlayerMap from './DrawPlayerMap';
 import NoTile from './NoTile';
 import Tile from './Tile';
 import tileMap from './tileMap';
@@ -41,39 +40,16 @@ export default function DrawTileMap(props) {
 
 
 
-  const [childPlayer, setChildPlayer] = useState([]);
-
-  const getPlayerArray = (childData) => {
-    setChildPlayer(childData);
-  }
-
-  console.log(childPlayer)
-
-
-
-
-
-
-
-
-
-
-
+  
   const CoinMap = useMemo(() => {
-    return <DrawCoinMap mapArray={randomTileArray} />
+    return <DrawCoinMap mapArray={props.mapArray} />
   }, [])
 
-  const PlayerMap = useMemo(() => {
-    return <DrawPlayerMap mapArray={randomTileArray} playerArrayFunc ={getPlayerArray}  />
-  }, [])
 
   return (
     <div className='flex justify-center rounded-lg border-2 border-white'>
       <div className='relative z-1'>
         {element}
-      </div>
-      <div className='absolute z-2'>
-        {PlayerMap}
       </div>
       <div className='absolute z-2'>
         {CoinMap}
