@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import DrawCoinMap from './DrawCoinMap';
 import EmptyTile from './EmptyTile';
-import movePlayer from './movePlayer';
 import movePlayerDirs from './movePlayerDirs';
 import Player from './Player';
 import setPlayer from './setPlayer';
@@ -50,10 +50,17 @@ function DrawPlayerMap(props) {
 
   console.log(playerPosArray);
 
+
+  
+
   return (
-    <div>
+
+    <div className='flex justify-center'>
+      <div className='relative z-1'>
       {element}
+      </div>
     </div>
+    
   ) 
   
 }

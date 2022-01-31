@@ -14,16 +14,10 @@ function DrawWorld2() {
 
   return(
     <div className='flex flex-col'>
-      <div className='flex justify-center rounded-lg border-2 border-white'>
+      <div className=''>
         <div className='relative z-1'>
-          <DrawTileMap mapArray={array} />
+          <DrawTileMap mapArray={array} x={baseX} y={baseY} />
         </div>
-        <div className='absolute z-2'>
-          <DrawCoinMap mapArray={array}/>
-        </div>
-        <div className='absolute z-3'>
-          <DrawPlayerMap mapArray={array} />
-        </div> 
       </div>
     </div>
       

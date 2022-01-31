@@ -3,7 +3,7 @@ import Coin from './Coin';
 import EmptyTile from './EmptyTile';
 import NoTile from './NoTile';
 
-function DrawCoinMap(props) {
+function DrawCoinMap(props, playerPosArray) {
 
   const arrayStart = props.mapArray;
   const coinArray = [];
@@ -53,11 +53,16 @@ function DrawCoinMap(props) {
     MapTile(item)
   })
 
+  
+
   console.log(coinArray)
+
+  const element = <div className='h-full p-5 flex flex-col'>{tileArray}</div>
+
+  
+
   return(
-    <div className='h-full p-5 flex flex-col'>
-      {tileArray}
-    </div>
+    element
   )
 }
 
