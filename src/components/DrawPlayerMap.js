@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import EmptyTile from './EmptyTile';
 import movePlayer from './movePlayer';
+import movePlayerDirs from './movePlayerDirs';
 import Player from './Player';
 import setPlayer from './setPlayer';
 
@@ -11,18 +12,32 @@ function DrawPlayerMap(props) {
   const [playerPosArray, setPlayerPosArray] = useState(playerArray);
 
   const element = createPlayerComp(playerPosArray);
-  let numMoves = 0;
 
-
-  const [downKey, setDownKey] = useState([]);
+  // const [downKey, setDownKey] = useState([]);
 
   const onKeyDown = (e) => {
     console.log(e.code);
     if (e.code === "KeyW"){
       console.log(e.code)
-      setPlayerPosArray(movePlayer(playerPosArray));
+      setPlayerPosArray(movePlayerDirs(playerPosArray, 'up'));
       document.removeEventListener('keydown', onKeyDown);
-    };
+    }
+    else if (e.code === "KeyS"){
+      console.log(e.code)
+      setPlayerPosArray(movePlayerDirs(playerPosArray, 'down'));
+      document.removeEventListener('keydown', onKeyDown);
+    }
+    else if (e.code === "KeyA"){
+      console.log(e.code)
+      setPlayerPosArray(movePlayerDirs(playerPosArray, 'left'));
+      document.removeEventListener('keydown', onKeyDown);
+    }
+    else if (e.code === "KeyD"){
+      console.log(e.code)
+      setPlayerPosArray(movePlayerDirs(playerPosArray, 'right'));
+      document.removeEventListener('keydown', onKeyDown);
+    }
+
   }
 
   useEffect(() => {
@@ -31,6 +46,8 @@ function DrawPlayerMap(props) {
   }, [element])
 
   
+
+  console.log(playerPosArray);
 
   return (
     <div>
