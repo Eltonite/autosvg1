@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo} from 'react';
 import { useState } from 'react/cjs/react.development';
 import Coin from './Coin';
 import DrawPlayerMap from './DrawPlayerMap';
@@ -8,98 +8,69 @@ import NoTile from './NoTile';
 function DrawCoinMap(props) {
 
   const arrayStart = props.mapArray;
+  //const coinArray = buildCoinArray(arrayStart);
+  const [coinArray, setCoinArray] = useState(buildCoinArray(arrayStart))
 
-
-  // const coinArray = [];
-  // arrayStart.map((arr) => {
-  //   let rowCoinArray = [];
-  //   arr.map((item)=> {
-  //     if (item === 0){
-  //       rowCoinArray.push(0);
-  //     } 
-  //     else if (item === 1){
-  //       const CoinYes = Math.floor(Math.random()*3)
-  //       if (CoinYes == 1){
-  //         rowCoinArray.push(1)
-  //       }
-  //       else{
-  //         rowCoinArray.push(0);
-  //       }
-  //     } 
-  //   })
-  //   coinArray.push(rowCoinArray)
-  // })
-  const coinArray = buildCoinArray(arrayStart);
-
-
-
-
-  // const tileArray =[];
-  // const MapTile = (drawArray) => {
-  //   const someArray = [];
-
-  //   drawArray.map((item) => {
-  //     if (item === 1){
-  //       someArray.push(<Coin />)
-  //     }
-  //     else if (item === 0){
-  //       someArray.push(<EmptyTile />)
-  //     }
-  //   })
-  //   tileArray.push(
-  //     <div className='flex flex-row justify-center'>
-  //       {someArray}
-  //     </div>
-  //   )
-  // }
-  // coinArray.map((item) => {
-  //   MapTile(item)
-  // })
+  const [score, setScore] = useState(0);
+  
   const tileArray = coinMapTile(coinArray);
 
-  
-
-
-
-
-
-
-
-
   const [childPlayer, setChildPlayer] = useState();
-
   const getPlayerArray = (childData) => {
     setChildPlayer(childData);
   }
 
-
-  const PlayerMap = useMemo(() => {
+  const PlayerMap = useMemo( () => {
     return <DrawPlayerMap mapArray={props.mapArray} doFunction={getPlayerArray} />
   }, [])
-
   console.log(childPlayer)
 
-
-  console.log(coinArray)
-  const element = useMemo(() => {
+  const coinElement = useMemo(() => {
     return <div className='h-full p-5 flex flex-col'>{tileArray}</div>
-  }, [])
-  
-  
+  }, [coinArray])
+  console.log(coinArray)
 
+
+  if (!(childPlayer === undefined)){
+    const isCoinTaken = playerOnCoinArray(childPlayer,coinArray)
+    console.log(isCoinTaken)
+
+    if (!stringifyCompare(isCoinTaken, coinArray)){
+      
+      setCoinArray(isCoinTaken)
+      setScore(score + 1)
+      console.log('changed')
+      
+
+    }
+    else{
+      console.log('unchanged')
+    }
+
+  }
+
+  console.log(score)
+  
 
   return(
-    <div className='flex justify-center'>
-      <div className='absolute z-2'>
+    <div>
+
+      <div className='flex justify-center relative'>
+        <div className='absolute z-2'>
         {PlayerMap}
+        </div>
+        <div className='absolute z-2'>
+          {coinElement}
+        </div>
+        <div className='text-white text-4xl fixed bottom-0'>{score}
+        </div>
       </div>
-      <div className='absolute z-2'>
-        {element}
-      </div>
-    </div>  
+      
+
+    </div>
+    
   )
 }
-
 export default DrawCoinMap;
 
 
@@ -130,9 +101,7 @@ const buildCoinArray = (initArray) => {
 }
 
 
-
 const coinMapTile = (coinArray) => {
-
   const tileArray = [];
   coinArray.map((row) => {
     const someArray = [];
@@ -151,4 +120,44 @@ const coinMapTile = (coinArray) => {
     )
   })
   return tileArray;
+}
+
+
+const playerOnCoinArray = (playerArray, coinArray) => {
+  const player = JSON.stringify(playerArray);
+  const coin = JSON.stringify(coinArray);
+  console.log(player)
+  console.log(coin)
+
+  console.log(player.length)
+  console.log(coin.length)
+
+  let newArray = '';
+
+  for (let i = 0; i < player.length; i++){
+    if(player[i] === '1' && coin[i] === '1'){
+      newArray += '0';
+      console.log("FOUND A COIN!!!")
+    }
+    else {
+      newArray += coin[i];
+    }
+  }
+
+  return JSON.parse(newArray);
+}
+
+
+const stringifyCompare = (array1, array2) => {
+
+  const string1 = JSON.stringify(array1);
+  const string2 = JSON.stringify(array2);
+
+  if (string1 === string2){
+    return true;
+  }
+  else{
+    return false;
+  }
+
 }
