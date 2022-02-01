@@ -47,11 +47,11 @@ export default function DrawTileMap(props) {
 
 
   return (
-    <div className='flex justify-center rounded-lg border-2 border-white'>
-      <div className='relative z-1'>
+    <div className='flex justify-center'>
+      <div className='relative z-1 rounded-lg border-2 border-white'>
         {element}
       </div>
-      <div className='absolute z-2'>
+      <div className='absolute text-center z-2'>
         {CoinMap}
       </div>
     </div>

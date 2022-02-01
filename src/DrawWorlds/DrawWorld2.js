@@ -12,15 +12,19 @@ function DrawWorld2() {
   const baseY = 5;
   const array = tileMap(baseX,baseY);
 
-  return(
-    <div className='flex flex-col'>
-      <div className=''>
-        <div className='relative z-1'>
-          <DrawTileMap mapArray={array} x={baseX} y={baseY} />
-        </div>
-      </div>
+
+  const oldDiv = <div className='flex flex-col'>
+  <div className=''>
+    <div className='relative z-1'>
+      <DrawTileMap mapArray={array} x={baseX} y={baseY} />
     </div>
-      
+  </div>
+</div>
+
+  return(
+    <div>
+      <DrawTileMap mapArray={array} x={baseX} y={baseY} />
+    </div> 
   );
 }
 
