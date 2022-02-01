@@ -8,8 +8,8 @@ function DrawWorld2() {
   //x = 27 and y = 11 for fullscreen
   // x = 9 and y = 11 for halfscreen
   // x = 9 and y = 5 for 1/4 screen with console
-  const baseX = 9;
-  const baseY = 5;
+  const baseX = 7;
+  const baseY = 9;
   const array = tileMap(baseX,baseY);
 
 
@@ -22,7 +22,7 @@ function DrawWorld2() {
 </div>
 
   return(
-    <div>
+    <div className='flex flex-row justify-center'>
       <DrawTileMap mapArray={array} x={baseX} y={baseY} />
     </div> 
   );

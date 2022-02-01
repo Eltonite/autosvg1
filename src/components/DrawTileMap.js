@@ -15,6 +15,7 @@ export default function DrawTileMap(props) {
 
   const [tileArray, setTileArray] = useState(props.mapArray);
 
+
   const element = createTileComp(tileArray)
 
 
@@ -37,18 +38,19 @@ export default function DrawTileMap(props) {
   }, [tileArray])
 
 
-
-
-
-  
   const CoinMap = useMemo(() => {
-    return <DrawCoinMap mapArray={props.mapArray} />
+    return <DrawCoinMap mapArray={tileArray} />
   }, [])
 
 
+  
+
+
+
+
   return (
-    <div className='flex justify-center'>
-      <div className='relative z-1 rounded-lg border-2 border-white'>
+    <div className='justify-center text-center flex rounded-lg border-2 border-white'>
+      <div className='relative z-1'>
         {element}
       </div>
       <div className='absolute text-center z-2'>

@@ -4,6 +4,8 @@ import Coin from './Coin';
 import DrawPlayerMap from './DrawPlayerMap';
 import EmptyTile from './EmptyTile';
 import NoTile from './NoTile';
+import WinWindow from './WinWindow';
+
 
 function DrawCoinMap(props) {
 
@@ -21,7 +23,7 @@ function DrawCoinMap(props) {
   }
 
   const PlayerMap = useMemo( () => {
-    return <DrawPlayerMap mapArray={props.mapArray} doFunction={getPlayerArray} />
+    return <DrawPlayerMap mapArray={arrayStart} doFunction={getPlayerArray} />
   }, [])
   console.log(childPlayer)
 
@@ -40,8 +42,6 @@ function DrawCoinMap(props) {
       setCoinArray(isCoinTaken)
       setScore(score + 1)
       console.log('changed')
-      
-
     }
     else{
       console.log('unchanged')
@@ -50,20 +50,41 @@ function DrawCoinMap(props) {
   }
 
   console.log(score)
+
+  console.log(JSON.stringify(coinArray))
+  console.log(stringifyZero(coinArray))
+
+  console.log(
+    JSON.stringify(coinArray) === stringifyZero(coinArray)
+  )
+  if (JSON.stringify(coinArray) === stringifyZero(coinArray)){
+
+    return (
+      <div className='flex flex-col justify-center py-5'>
+        <WinWindow />
+      </div>
+    )
+    
+  }
   
 
   return(
     <div>
 
-      <div className='flex justify-center relative'>
-        <div className='absolute z-2'>
+      <div className='flex flex-col justify-center gap-5'>
+        <div className='relative z-2'>
         {PlayerMap}
         </div>
-        <div className='absolute z-2'>
+        <div className='absolute top-0 z-2'>
           {coinElement}
         </div>
-        <div className='text-white text-4xl fixed bottom-0'>{score}
+
+        <div className='flex flex-row justify-center'>
+          <Coin />
+          <div className='text-white text-4xl'>{score}</div>
+          <Coin />
         </div>
+        
       </div>
       
 
@@ -160,4 +181,20 @@ const stringifyCompare = (array1, array2) => {
     return false;
   }
 
+}
+
+const stringifyZero = (array) => {
+  const theArray = JSON.stringify(array);
+  let arrayToZeros = '';
+
+  for (let i = 0; i < theArray.length; i++){
+    if(theArray[i] === '1' || theArray[i] === '0'){
+      arrayToZeros += '0';
+    }
+    else {
+      arrayToZeros += theArray[i];
+    }
+  }
+
+  return(arrayToZeros);
 }

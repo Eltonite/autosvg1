@@ -23,6 +23,7 @@ const movePlayerDirs = (posArray, dir) => {
     }
   })
 
+  console.log(templateArrayX,templateArrayY)
   console.log([posX,posY])
   const newPosArray = moveCoord(posX,posY, dir);
   console.log(newPosArray);

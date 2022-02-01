@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import DrawWorld from './components/DrawWorld';
+import WinWindow from './components/WinWindow';
 import DrawWorld2 from './DrawWorlds/DrawWorld2';
 
 function App() {
@@ -8,10 +9,11 @@ function App() {
 
   const [isHidden, setIsHidden] = useState(
     {
-      css: "", 
-      isTrue: false,
-      text: "HIDE NFT"
-    });
+      css: "hidden", 
+      isTrue: true,
+      text: "SHOW NFT"
+    }
+    );
 
   const [theNFT, setTheNFT] = useState(whichWorld);
 
@@ -30,15 +32,30 @@ function App() {
           css: "hidden", 
           isTrue: true,
           text: "SHOW NFT"
-        })}
+        }
+        )}
   }
 
   const generateNFT = () => {
     setTheNFT(<DrawWorld2 />);
   }
 
+  const [btnString, setBtnString] = useState("START GAME")
+
   return (
     <div className='h-screen bg-black flex flex-col gap-4 p-3 text-white'>
+
+      
+
+      <button onClick={()=>{
+        setBtnString("COLLECT EM ALL!")
+        showNFT();
+
+        }} className='border-purple-300 bg-purple-800 border-4 rounded-2xl py-2 px-5 flex flex-row justify-center'>{btnString}
+
+        
+        
+        </button>
 
       <div className= {isHidden.css}>
         {theNFT}
